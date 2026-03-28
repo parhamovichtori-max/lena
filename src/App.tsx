@@ -33,6 +33,7 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
+    { name: 'Ретрит', href: '#retreat' },
     { name: 'О практиках', href: '#formats' },
     { name: 'Для кого', href: '#for-whom' },
     { name: 'Расписание', href: '#schedule' },
@@ -152,6 +153,185 @@ export default function App() {
               <p className="font-serif italic text-black">
                 Выбери то, что сильнее всего откликается сейчас: с этого шага начнётся твой выход из выживания в жизнь, где ты опираешься на себя и создаёшь свою реальность, а не живёшь чужими сценариями.
               </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Grozny Retreat Section */}
+      <section id="retreat" className="section-padding bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-20">
+            <motion.span 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-[10px] uppercase tracking-[0.3em] opacity-40 block mb-4"
+            >
+              Цель и намерение
+            </motion.span>
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-5xl md:text-7xl font-serif leading-[0.9] mb-8"
+            >
+              Ретрит в Грозном: <br />
+              <span className="italic">пространство,</span> где реальность <br />
+              начинает слушаться тебя.
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-xl text-black/60 max-w-3xl leading-relaxed"
+            >
+              3 дня в новом «Дубае» Кавказа, где сила города, гор и молитвенного поля помогает женщине выйти из старых сценариев и научиться управлять своей реальностью.
+            </motion.p>
+          </div>
+
+          {/* Program Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-32">
+            {[
+              {
+                day: "День 1",
+                title: "Знакомство с силой города",
+                items: [
+                  "Прибытие в Грозный, заселение в Cosmos Selection Grozny City 5*",
+                  "Поздний обед/ужин в ресторане «Купол»",
+                  "Вечерняя обзорная экскурсия: Грозный‑Сити, мечеть «Сердце Чечни», Храм Архангела Михаила, прогулка по проспекту Махмуда Эсамбаева",
+                  "Возвращение в отель, СПА, мягкая вводная практика"
+                ]
+              },
+              {
+                day: "День 2",
+                title: "Горы, вода и глубинная работа",
+                items: [
+                  "Завтрак в отеле",
+                  "Экскурсия в Аргунское ущелье: мечеть «Сердце Матери», Нихалойские водопады, Ушкалойские башни",
+                  "Обед по маршруту",
+                  "Музей им. Хусейна Исаева в замковом комплексе Пхакоч",
+                  "Вечерние практики и расстановки, ужин в ресторане «Купол», СПА"
+                ]
+              },
+              {
+                day: "День 3",
+                title: "Интеграция",
+                items: [
+                  "Завтрак в отеле",
+                  "Финальная практика на интеграцию",
+                  "Освобождение номеров до 12:00, выезд в аэропорт"
+                ]
+              }
+            ].map((day, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="p-8 border border-black/5 rounded-3xl hover:bg-neutral-50 transition-colors"
+              >
+                <span className="text-xs uppercase tracking-widest opacity-40 mb-2 block">{day.day}</span>
+                <h3 className="text-2xl font-serif mb-6">{day.title}</h3>
+                <ul className="space-y-4">
+                  {day.items.map((item, j) => (
+                    <li key={j} className="flex gap-3 text-sm text-black/70 leading-relaxed">
+                      <span className="shrink-0 mt-1.5 w-1 h-1 bg-black rounded-full" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Photo Gallery Placeholders */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-32">
+            {[
+              { label: "Ночной Грозный и комплекс «Грозный‑Сити»", seed: "grozny-night" },
+              { label: "Мечеть «Сердце Чечни»", seed: "mosque" },
+              { label: "Аргунское ущелье и Нихалойские водопады", seed: "waterfall" },
+              { label: "Ушкалойские башни и комплекс Пхакоч", seed: "towers" }
+            ].map((img, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group"
+              >
+                <div className="aspect-[3/4] bg-neutral-100 rounded-2xl overflow-hidden mb-4">
+                  <img 
+                    src={`https://picsum.photos/seed/${img.seed}/600/800?grayscale`} 
+                    alt={img.label} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+                <p className="text-[10px] uppercase tracking-widest opacity-40 text-center">{img.label}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Conditions & Form */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-3xl font-serif mb-8 italic">Формат участия и условия</h3>
+              <div className="space-y-4">
+                {[
+                  "Ретрит на 3 дня / 2 ночи в Грозном",
+                  "Проживание в отеле 5* Cosmos Selection Grozny City (завтраки включены)",
+                  "Экскурсионное и транспортное обслуживание по программе",
+                  "Питание: завтраки + 2 обеда + 1 ужин",
+                  "Входные билеты и экологические сборы",
+                  "Авторские практики, расстановки и сопровождение Елены",
+                  "Не включено: перелёт, личные расходы, дополнительные услуги СПА"
+                ].map((condition, i) => (
+                  <div key={i} className="flex gap-4 items-start py-4 border-b border-black/5">
+                    <CheckCircle2 size={18} className="shrink-0 mt-1 opacity-30" />
+                    <p className="text-lg opacity-80">{condition}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="p-10 bg-neutral-50 rounded-[40px] border border-black/5"
+            >
+              <h3 className="text-2xl font-serif mb-4">Оставь заявку — вышлю подробную презентацию с ценами и полной программой</h3>
+              <p className="text-sm text-black/50 mb-8">
+                Отправляя форму, ты даёшь согласие на обработку персональных данных. В ответ я пришлю подробную PDF‑презентацию с ценами, программой по дням и условиями участия.
+              </p>
+              
+              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                <div>
+                  <input 
+                    type="text" 
+                    placeholder="Ваше имя" 
+                    className="w-full px-6 py-4 bg-white border border-black/5 rounded-2xl focus:outline-none focus:border-black transition-colors"
+                  />
+                </div>
+                <div>
+                  <input 
+                    type="text" 
+                    placeholder="Телефон / WhatsApp / Telegram" 
+                    className="w-full px-6 py-4 bg-white border border-black/5 rounded-2xl focus:outline-none focus:border-black transition-colors"
+                  />
+                </div>
+                <button className="w-full py-5 bg-black text-white rounded-2xl uppercase tracking-widest text-xs font-bold hover:bg-black/80 transition-all flex items-center justify-center gap-2">
+                  Получить презентацию ретрита <ArrowRight size={16} />
+                </button>
+              </form>
             </motion.div>
           </div>
         </div>
