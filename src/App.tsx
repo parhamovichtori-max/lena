@@ -33,6 +33,7 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
+    { name: 'Сопровождение', href: '#coaching' },
     { name: 'Ретрит', href: '#retreat' },
     { name: 'О практиках', href: '#formats' },
     { name: 'Для кого', href: '#for-whom' },
@@ -148,10 +149,7 @@ export default function App() {
                 Я собрала здесь свои онлайн‑практики, чтобы помочь тебе выйти из старых сценариев — спасательства, выгорания, бесконечного «надо» — и вернуть себе опору, чувствительность и вкус к жизни.
               </p>
               <p>
-                Каждый продукт ниже — это точка входа в изменения: мастер‑классы про деньги, энергию и самосаботаж, личные разборы и расстановки, ежедневные энергопрактики и групповая работа, которые мягко, но конкретно влияют на твою реальность — отношения, тело, деньги и состояние внутри.
-              </p>
-              <p className="font-serif italic text-black">
-                Выбери то, что сильнее всего откликается сейчас: с этого шага начнётся твой выход из выживания в жизнь, где ты опираешься на себя и создаёшь свою реальность, а не живёшь чужими сценариями.
+                Каждый продукт ниже — это точка входа в изменения: мастер‑классы про деньги, энергию и самосаботаж, личные разборы и расстановки, ежедневные энергопрактики и групповая работа, которые мягко, но конкретно влияют на твою реальность — отношения, тело, деньги.
               </p>
             </motion.div>
           </div>
@@ -161,142 +159,33 @@ export default function App() {
       {/* Grozny Retreat Section */}
       <section id="retreat" className="section-padding bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-20">
-            <motion.span 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-[10px] uppercase tracking-[0.3em] opacity-40 block mb-4"
-            >
-              Цель и намерение
-            </motion.span>
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-5xl md:text-7xl font-serif leading-[0.9] mb-8"
-            >
-              Ретрит в Грозном: <br />
-              <span className="italic">пространство,</span> где реальность <br />
-              начинает слушаться тебя.
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-xl text-black/60 max-w-3xl leading-relaxed"
-            >
-              3 дня в новом «Дубае» Кавказа, где сила города, гор и молитвенного поля помогает женщине выйти из старых сценариев и научиться управлять своей реальностью.
-            </motion.p>
-          </div>
-
-          {/* Program Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-32">
-            {[
-              {
-                day: "День 1",
-                title: "Знакомство с силой города",
-                items: [
-                  "Прибытие в Грозный, заселение в Cosmos Selection Grozny City 5*",
-                  "Поздний обед/ужин в ресторане «Купол»",
-                  "Вечерняя обзорная экскурсия: Грозный‑Сити, мечеть «Сердце Чечни», Храм Архангела Михаила, прогулка по проспекту Махмуда Эсамбаева",
-                  "Возвращение в отель, СПА, мягкая вводная практика"
-                ]
-              },
-              {
-                day: "День 2",
-                title: "Горы, вода и глубинная работа",
-                items: [
-                  "Завтрак в отеле",
-                  "Экскурсия в Аргунское ущелье: мечеть «Сердце Матери», Нихалойские водопады, Ушкалойские башни",
-                  "Обед по маршруту",
-                  "Музей им. Хусейна Исаева в замковом комплексе Пхакоч",
-                  "Вечерние практики и расстановки, ужин в ресторане «Купол», СПА"
-                ]
-              },
-              {
-                day: "День 3",
-                title: "Интеграция",
-                items: [
-                  "Завтрак в отеле",
-                  "Финальная практика на интеграцию",
-                  "Освобождение номеров до 12:00, выезд в аэропорт"
-                ]
-              }
-            ].map((day, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-8 border border-black/5 rounded-3xl hover:bg-neutral-50 transition-colors"
-              >
-                <span className="text-xs uppercase tracking-widest opacity-40 mb-2 block">{day.day}</span>
-                <h3 className="text-2xl font-serif mb-6">{day.title}</h3>
-                <ul className="space-y-4">
-                  {day.items.map((item, j) => (
-                    <li key={j} className="flex gap-3 text-sm text-black/70 leading-relaxed">
-                      <span className="shrink-0 mt-1.5 w-1 h-1 bg-black rounded-full" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Photo Gallery Placeholders */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-32">
-            {[
-              { label: "Ночной Грозный и комплекс «Грозный‑Сити»", seed: "grozny-night" },
-              { label: "Мечеть «Сердце Чечни»", seed: "mosque" },
-              { label: "Аргунское ущелье и Нихалойские водопады", seed: "waterfall" },
-              { label: "Ушкалойские башни и комплекс Пхакоч", seed: "towers" }
-            ].map((img, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group"
-              >
-                <div className="aspect-[3/4] bg-neutral-100 rounded-2xl overflow-hidden mb-4">
-                  <img 
-                    src={`https://picsum.photos/seed/${img.seed}/600/800?grayscale`} 
-                    alt={img.label} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-                <p className="text-[10px] uppercase tracking-widest opacity-40 text-center">{img.label}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Conditions & Form */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-24">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-3xl font-serif mb-8 italic">Формат участия и условия</h3>
-              <div className="space-y-4">
+              <span className="text-[10px] uppercase tracking-[0.3em] opacity-40 block mb-4">Эксклюзивный выезд</span>
+              <h2 className="text-5xl md:text-7xl font-serif leading-[0.9] mb-8">
+                Ретрит в Грозном: <br />
+                <span className="italic">пространство силы</span>
+              </h2>
+              <p className="text-xl text-black/70 mb-8 leading-relaxed">
+                Пространство, где реальность начинает слушаться тебя. 3 дня в новом «Дубае» Кавказа, где сила города, гор и молитвенного поля помогает женщине выйти из старых сценариев и научиться управлять своей реальностью.
+              </p>
+              
+              <div className="space-y-8 mt-12">
                 {[
-                  "Ретрит на 3 дня / 2 ночи в Грозном",
-                  "Проживание в отеле 5* Cosmos Selection Grozny City (завтраки включены)",
-                  "Экскурсионное и транспортное обслуживание по программе",
-                  "Питание: завтраки + 2 обеда + 1 ужин",
-                  "Входные билеты и экологические сборы",
-                  "Авторские практики, расстановки и сопровождение Елены",
-                  "Не включено: перелёт, личные расходы, дополнительные услуги СПА"
-                ].map((condition, i) => (
-                  <div key={i} className="flex gap-4 items-start py-4 border-b border-black/5">
-                    <CheckCircle2 size={18} className="shrink-0 mt-1 opacity-30" />
-                    <p className="text-lg opacity-80">{condition}</p>
+                  { day: "День 1", title: "Знакомство с силой города", desc: "Прибытие, заселение в Cosmos Selection Grozny City 5*, ужин в ресторане «Купол» с видом на город, вечерняя экскурсия: мечеть «Сердце Чечни», Храм Архангела Михаила." },
+                  { day: "День 2", title: "Сила гор и тишины", desc: "Поездка к высокогорному озеру Кезеной‑Ам, древний город стражников Хой, обед в горах, практики заземления и возвращения себе своей силы." },
+                  { day: "День 3", title: "Чистота и намерение", desc: "Посещение мечети «Гордость Мусульман» в Шали (белый мрамор и кристаллы Swarovski), рынок за специями и смыслами, вылет домой в новом состоянии." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-6 group">
+                    <div className="text-sm font-bold opacity-20 group-hover:opacity-100 transition-opacity pt-1">{item.day}</div>
+                    <div>
+                      <h4 className="text-xl font-serif mb-2">{item.title}</h4>
+                      <p className="text-sm text-black/50 leading-relaxed">{item.desc}</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -306,33 +195,256 @@ export default function App() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
+              className="space-y-8"
+            >
+              <div className="grid grid-cols-2 gap-4">
+                <div className="aspect-[3/4] rounded-3xl overflow-hidden bg-neutral-100">
+                  <img src="https://picsum.photos/seed/grozny1/600/800?grayscale" alt="Grozny" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                </div>
+                <div className="aspect-[3/4] rounded-3xl overflow-hidden bg-neutral-100 mt-12">
+                  <img src="https://picsum.photos/seed/mountains/600/800?grayscale" alt="Mountains" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                </div>
+              </div>
+              <div className="p-10 bg-black text-white rounded-[40px]">
+                <h3 className="text-2xl font-serif mb-6 italic">Формат и условия</h3>
+                <ul className="space-y-4 text-sm opacity-80">
+                  <li className="flex gap-3"><CheckCircle2 size={16} className="shrink-0" /> Проживание в Cosmos Selection Grozny City 5*</li>
+                  <li className="flex gap-3"><CheckCircle2 size={16} className="shrink-0" /> Завтраки, обеды и ужины в лучших локациях</li>
+                  <li className="flex gap-3"><CheckCircle2 size={16} className="shrink-0" /> Все трансферы и экскурсионное сопровождение</li>
+                  <li className="flex gap-3"><CheckCircle2 size={16} className="shrink-0" /> Групповые энергопрактики и личное поле мастера</li>
+                </ul>
+                <div className="mt-10 pt-10 border-t border-white/10">
+                  <p className="text-xs uppercase tracking-widest opacity-40 mb-2">Не входит в стоимость</p>
+                  <p className="text-sm opacity-60">Авиабилеты до Грозного и обратно, личные расходы.</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-3xl font-serif mb-6">Готова изменить свою реальность?</h3>
+              <p className="text-black/60 mb-8">
+                Этот ретрит — не просто экскурсия. Это глубокое погружение в свою силу через внешнюю красоту и мощь Кавказа. Количество мест ограничено для сохранения камерности и качества процессов.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <div className="flex items-center gap-2 px-4 py-2 border border-black/10 rounded-full text-xs uppercase tracking-widest">
+                  <MapPin size={14} /> Грозный, Чечня
+                </div>
+                <div className="flex items-center gap-2 px-4 py-2 border border-black/10 rounded-full text-xs uppercase tracking-widest">
+                  <Calendar size={14} /> 3 дня / 2 ночи
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               className="p-10 bg-neutral-50 rounded-[40px] border border-black/5"
             >
-              <h3 className="text-2xl font-serif mb-4">Оставь заявку — вышлю подробную презентацию с ценами и полной программой</h3>
+              <h3 className="text-2xl font-serif mb-4">Оставь заявку — вышлю подробную презентацию</h3>
               <p className="text-sm text-black/50 mb-8">
-                Отправляя форму, ты даёшь согласие на обработку персональных данных. В ответ я пришлю подробную PDF‑презентацию с ценами, программой по дням и условиями участия.
+                Отправляя форму, ты даёшь согласие на обработку персональных данных. В ответ я пришлю подробную PDF‑презентацию с ценами и программой.
               </p>
               
               <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                <div>
-                  <input 
-                    type="text" 
-                    placeholder="Ваше имя" 
-                    className="w-full px-6 py-4 bg-white border border-black/5 rounded-2xl focus:outline-none focus:border-black transition-colors"
-                  />
-                </div>
-                <div>
-                  <input 
-                    type="text" 
-                    placeholder="Телефон / WhatsApp / Telegram" 
-                    className="w-full px-6 py-4 bg-white border border-black/5 rounded-2xl focus:outline-none focus:border-black transition-colors"
-                  />
-                </div>
+                <input type="text" placeholder="Ваше имя" className="w-full px-6 py-4 bg-white border border-black/5 rounded-2xl focus:outline-none focus:border-black transition-colors" />
+                <input type="text" placeholder="Телефон / WhatsApp / Telegram" className="w-full px-6 py-4 bg-white border border-black/5 rounded-2xl focus:outline-none focus:border-black transition-colors" />
                 <button className="w-full py-5 bg-black text-white rounded-2xl uppercase tracking-widest text-xs font-bold hover:bg-black/80 transition-all flex items-center justify-center gap-2">
                   Получить презентацию ретрита <ArrowRight size={16} />
                 </button>
               </form>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Coaching Section (Сопровождение) */}
+      <section id="coaching" className="section-padding bg-neutral-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-32">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="text-[10px] uppercase tracking-[0.3em] opacity-40 block mb-4">8-недельная программа</span>
+              <h2 className="text-5xl md:text-7xl font-serif leading-[0.9] mb-8">
+                Сопровождение: <br />
+                <span className="italic">Взрослая игра</span>
+              </h2>
+              <p className="text-xl text-black/70 mb-8 leading-relaxed">
+                Для женщин, которые устали жить «на потом», метаться между ролями и курсами и хотят реальных изменений в деньгах, отношениях и состоянии опоры на себя.
+              </p>
+              <div className="p-6 border border-black/10 rounded-2xl bg-white/50">
+                <p className="text-sm font-medium mb-2 uppercase tracking-widest opacity-40">Типичные запросы:</p>
+                <p className="text-lg italic">«Много знаний — мало действий», перегруз мнениями и курсами при внутренней пустоте, желание выйти из роли «хорошей девочки» и начать выбирать себя.</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-12"
+            >
+              <div>
+                <h3 className="text-2xl font-serif mb-6 italic">Философия и формат</h3>
+                <div className="grid grid-cols-1 gap-6">
+                  {[
+                    { title: "Игра", desc: "Лёгкость и азарт вместо драматизации и страха ошибки." },
+                    { title: "Дисциплина", desc: "Мягкая структура, которая держит и помогает доводить начатое до конца." },
+                    { title: "Тишина", desc: "Умение слышать себя и делать выбор из внутренней опоры." }
+                  ].map((item, i) => (
+                    <div key={i} className="flex gap-4">
+                      <div className="w-10 h-10 shrink-0 border border-black/10 rounded-full flex items-center justify-center text-xs font-bold">{i + 1}</div>
+                      <div>
+                        <h4 className="font-serif text-xl">{item.title}</h4>
+                        <p className="text-black/50 text-sm">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="p-6 bg-black text-white rounded-3xl">
+                <p className="text-sm uppercase tracking-[0.2em] opacity-50 mb-2">Формат</p>
+                <p className="text-xl font-serif italic">8 недель, еженедельно 15‑минутный урок + глубокая практика, проживание в реальной жизни, а не «просмотр лекций».</p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* What we work with */}
+          <div className="mb-32">
+            <SectionHeading title="С чем работаем" subtitle="Глубинная трансформация через четыре вектора внимания." />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                { title: "Ясность", desc: "Меньше ментального шума, больше понимания своих настоящих желаний." },
+                { title: "Зеркало", desc: "Видишь, как события отражают твоё состояние, и меняешь исходный код внутри." },
+                { title: "Состояние Новичка", desc: "Отпускаешь усталый опыт «не получается», появляется энергия пробовать иначе." },
+                { title: "Результат", desc: "Выход из «белки в колесе», снижение тревоги, структура дня, ресурс на проекты." }
+              ].map((item, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="p-8 border border-black/5 rounded-3xl bg-white"
+                >
+                  <h4 className="text-xl font-serif mb-4 italic">{item.title}</h4>
+                  <p className="text-sm text-black/60 leading-relaxed">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Cases */}
+          <div className="mb-32">
+            <SectionHeading title="Кейсы" />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                { name: "Ольга", role: "Владелица сети салонов", result: "Вышла из операционки, прибыль +40%, отпуск без ноутбука впервые за 5 лет." },
+                { name: "Татьяна", role: "Топ‑менеджер", result: "Запустила авторский проект, ушёл синдром самозванца и потребность доказывать свою ценность." },
+                { name: "Ирина", role: "Психолог", result: "Вернула флирт в браке, запустила новое направление из состояния Игры, а не долга." }
+              ].map((item, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  className="p-8 border border-black/10 rounded-[40px] relative overflow-hidden group"
+                >
+                  <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                    <User size={80} />
+                  </div>
+                  <h4 className="text-2xl font-serif mb-1">{item.name}</h4>
+                  <p className="text-[10px] uppercase tracking-widest opacity-40 mb-6">{item.role}</p>
+                  <p className="text-lg italic leading-relaxed">«{item.result}»</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Tariffs */}
+          <div className="mb-32">
+            <SectionHeading title="Тарифы" />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Autonomous */}
+              <div className="p-10 border border-black/5 rounded-[40px] bg-white flex flex-col">
+                <h4 className="text-2xl font-serif mb-2">Автономный</h4>
+                <p className="text-sm opacity-40 mb-8 uppercase tracking-widest">Самостоятельный формат</p>
+                <ul className="space-y-4 mb-12 flex-grow">
+                  <li className="flex gap-3 text-sm opacity-70"><CheckCircle2 size={16} className="shrink-0 mt-0.5" /> 8 недель доступа к урокам</li>
+                  <li className="flex gap-3 text-sm opacity-70"><CheckCircle2 size={16} className="shrink-0 mt-0.5" /> Глубокие практики</li>
+                  <li className="flex gap-3 text-sm opacity-70"><CheckCircle2 size={16} className="shrink-0 mt-0.5" /> Свой темп, без созвонов</li>
+                  <li className="flex gap-3 text-sm opacity-70"><CheckCircle2 size={16} className="shrink-0 mt-0.5" /> Энергозавтраки еженедельно</li>
+                </ul>
+                <button className="w-full py-5 border border-black rounded-2xl text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all">
+                  Иду в Автономный
+                </button>
+              </div>
+
+              {/* Here and Now */}
+              <div className="p-10 bg-black text-white rounded-[40px] flex flex-col relative overflow-hidden">
+                <div className="absolute top-0 right-0 bg-white text-black px-4 py-1 text-[10px] font-bold uppercase tracking-widest rounded-bl-2xl">
+                  12 мест
+                </div>
+                <h4 className="text-2xl font-serif mb-2">Здесь и Сейчас</h4>
+                <p className="text-sm opacity-40 mb-2 uppercase tracking-widest">Групповая динамика</p>
+                <p className="text-3xl font-serif mb-8">120 000 ₽</p>
+                <ul className="space-y-4 mb-12 flex-grow">
+                  <li className="flex gap-3 text-sm opacity-70"><CheckCircle2 size={16} className="shrink-0 mt-0.5" /> 8 недель практики в группе</li>
+                  <li className="flex gap-3 text-sm opacity-70"><CheckCircle2 size={16} className="shrink-0 mt-0.5" /> Эфиры и разборы</li>
+                  <li className="flex gap-3 text-sm opacity-70"><CheckCircle2 size={16} className="shrink-0 mt-0.5" /> Бадди и общий чат</li>
+                  <li className="flex gap-3 text-sm opacity-70"><CheckCircle2 size={16} className="shrink-0 mt-0.5" /> Живое участие без записей</li>
+                </ul>
+                <button className="w-full py-5 bg-white text-black rounded-2xl text-xs font-bold uppercase tracking-widest hover:bg-neutral-200 transition-all">
+                  Иду в Здесь и Сейчас
+                </button>
+              </div>
+
+              {/* VIP */}
+              <div className="p-10 border border-black/5 rounded-[40px] bg-white flex flex-col relative">
+                <div className="absolute top-0 right-0 bg-black text-white px-4 py-1 text-[10px] font-bold uppercase tracking-widest rounded-bl-2xl">
+                  2 места
+                </div>
+                <h4 className="text-2xl font-serif mb-2">VIP Limited</h4>
+                <p className="text-sm opacity-40 mb-2 uppercase tracking-widest">Личное ведение</p>
+                <p className="text-3xl font-serif mb-8">173 000 ₽</p>
+                <ul className="space-y-4 mb-12 flex-grow">
+                  <li className="flex gap-3 text-sm opacity-70"><CheckCircle2 size={16} className="shrink-0 mt-0.5" /> Всё из «Здесь и Сейчас»</li>
+                  <li className="flex gap-3 text-sm opacity-70"><CheckCircle2 size={16} className="shrink-0 mt-0.5" /> Еженедельные личные разборы</li>
+                  <li className="flex gap-3 text-sm opacity-70"><CheckCircle2 size={16} className="shrink-0 mt-0.5" /> Техника «Протяжки»</li>
+                  <li className="flex gap-3 text-sm opacity-70"><CheckCircle2 size={16} className="shrink-0 mt-0.5" /> Записи эфиров на 2 месяца</li>
+                </ul>
+                <button className="w-full py-5 border border-black rounded-2xl text-xs font-bold uppercase tracking-widest hover:bg-black hover:text-white transition-all">
+                  Иду в VIP
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* FAQ */}
+          <div className="max-w-3xl mx-auto">
+            <SectionHeading title="Частые вопросы" />
+            <div className="space-y-6">
+              {[
+                { q: "Совмещение с работой", a: "Короткие уроки и практики, встроенные в обычный день. Вам не нужно выделять часы на теорию." },
+                { q: "Записи", a: "Есть в Автономном и VIP (2 месяца), в «Здесь и Сейчас» — акцент на живом участии для максимального результата." },
+                { q: "Рассрочка", a: "Возможна, условия обсуждаются индивидуально. Напишите мне для уточнения." },
+                { q: "Страх не успеть", a: "Свой темп + поле группы и энергозавтраков помогает не выпадать и двигаться в комфортном ритме." }
+              ].map((faq, i) => (
+                <div key={i} className="p-6 border-b border-black/5">
+                  <h4 className="text-lg font-serif mb-2">{faq.q}</h4>
+                  <p className="text-sm text-black/50 leading-relaxed">{faq.a}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
