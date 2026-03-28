@@ -123,6 +123,40 @@ export default function App() {
     <div className="min-h-screen bg-white selection:bg-black selection:text-white">
       <Navbar />
 
+      {/* Online Space Section */}
+      <section className="section-padding pt-32 pb-16 border-b border-black/5 bg-neutral-50/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl md:text-6xl font-serif leading-tight mb-8">
+                Онлайн‑пространство практик для женщин, которые устали выживать и хотят начать жить
+              </h2>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="space-y-6 text-lg text-black/70 leading-relaxed"
+            >
+              <p>
+                Я собрала здесь свои онлайн‑практики, чтобы помочь тебе выйти из старых сценариев — спасательства, выгорания, бесконечного «надо» — и вернуть себе опору, чувствительность и вкус к жизни.
+              </p>
+              <p>
+                Каждый продукт ниже — это точка входа в изменения: мастер‑классы про деньги, энергию и самосаботаж, личные разборы и расстановки, ежедневные энергопрактики и групповая работа, которые мягко, но конкретно влияют на твою реальность — отношения, тело, деньги и состояние внутри.
+              </p>
+              <p className="font-serif italic text-black">
+                Выбери то, что сильнее всего откликается сейчас: с этого шага начнётся твой выход из выживания в жизнь, где ты опираешься на себя и создаёшь свою реальность, а не живёшь чужими сценариями.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
         <div className="absolute inset-0 bg-dot-pattern -z-10" />
